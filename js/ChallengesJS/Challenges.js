@@ -29,19 +29,50 @@ function retoDos() {
 function retoTres() {
   //Challenge 3: Crea un menu que se repite si ingresa la opcion equivocada hasta que ingrese la opcion correcta - reutilizar ejercicio de operaciones matematicas (exercisesLevel3.js, function exerciseTwo())
 
-  while (true) {
-    const opcion = parseInt(
-      prompt("Elige una opción:\n1. Opción 1\n2. Opción 2\n3. Opción 3")
+  let operation = parseInt(
+    prompt(
+      "OPERACIONES MATEMATICAS BÁSICAS: \n Ingresa 1 para sumar. \n Ingresa 2 para restar. \n Ingresa 3 para multiplicar. \n Ingresa 4 para Dividir."
+    )
+  );
+  while (isNaN(operation) || operation > 4 || operation < 1) {
+    alert("Opcion invalida, ingresar numeros entre 1 y 4");
+    operation = parseInt(
+      prompt(
+        "OPERACIONES MATEMATICAS BÁSICAS: \n Ingresa 1 para sumar. \n Ingresa 2 para restar. \n Ingresa 3 para multiplicar. \n Ingresa 4 para Dividir."
+      )
     );
+  }
+  const num1 = parseFloat(prompt("Ingrese numero 1"));
+  const num2 = parseFloat(prompt("Ingrese numero 2"));
+  let result = 0;
 
-    if (opcion >= 1 && opcion <= 3) {
-      console.log("Has elegido la opción:", opcion);
+  if (isNaN(num1) || isNaN(num2)) {
+    return alert("Favir ingresar solo numeros");
+  }
+  switch (operation) {
+    case 1:
+      result = num1 + num2;
+      alert("El resultado de la suma es: " + result);
       break;
-    } else {
-      console.log("Opción incorrecta. Por favor, elige una opción válida.");
-    }
+    case 2:
+      result = num1 + num2;
+      alert("El resultado de la resta es: " + result);
+      break;
+    case 3:
+      result = num1 + num2;
+      alert("El resultado de la multiplicacion es: " + result);
+      break;
+    case 4:
+      if (num2 === 0) {
+        alert("No es posible dividir por cero");
+      } else {
+        result = num1 / num2;
+        alert("El resultado de la división es: " + result);
+      }
+      break;
   }
 }
+
 function retoCuatro() {
   //Challenge 4: Crea un programa que encuentre el número más grande en un array dado usando for normal y lo imprima en un alert o log. Array de ejemplo: [45, 23, 67, 89, 12, 56]
 
